@@ -34,6 +34,7 @@ public class UsuarioDAO {
 		}
 	}
 	
+	
 	public int addUser(Usuario u)throws Exception{
 		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,NOME,EMAIL,SENHA) values(?,?,?,?)");
 		stmt.setLong(1, u.getId());
