@@ -2,12 +2,13 @@ package br.com.techsow.beans;
 
 public class Usuario {
 	
-	private long id;
+	private int id;
 	private String nome,email,senha;
+	
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -28,11 +29,16 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Usuario(long id, String nome, String email, String senha) {
+	public Usuario(int id, String nome, String email, String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 	}
+	public Usuario() {
+		
+	}
+	
+	
 	
 }
