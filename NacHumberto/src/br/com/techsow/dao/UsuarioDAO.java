@@ -13,7 +13,7 @@ public class UsuarioDAO {
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
-	private UsuarioDAO() throws Exception{
+	public UsuarioDAO() throws Exception{
 		con=Conexao.conectar();
 	}
 	
