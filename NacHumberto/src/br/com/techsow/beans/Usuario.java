@@ -5,7 +5,7 @@ public class Usuario {
 	private int id;
 	private String nome,email,senha;
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {

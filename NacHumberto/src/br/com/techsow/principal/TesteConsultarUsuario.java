@@ -9,7 +9,7 @@ public class TesteConsultarUsuario {
 		UsuarioDAO dao = null;
 		try {
 			dao = new UsuarioDAO();
-			Usuario user = dao.getUser(1);
+			Usuario user = dao.getUser(3);
 			System.out.println(user.getEmail());
 			System.out.println(user.getSenha());
 

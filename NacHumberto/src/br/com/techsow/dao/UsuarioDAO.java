@@ -20,8 +20,8 @@ public class UsuarioDAO {
 	
 	
 	public Usuario getUser(int id) throws Exception{
-		stmt = con.prepareStatement("SELECT FROM * TS_T_USUARIO WHERE ID_USUARIO=?");
-		stmt.setLong(1, id);
+		stmt = con.prepareStatement("SELECT * FROM  TS_T_USUARIO WHERE ID_USUARIO=?");
+		stmt.setInt(1, id);
 		rs=stmt.executeQuery();
 		
 		if(rs.next()) {
@@ -38,7 +38,7 @@ public class UsuarioDAO {
 	
 	public int addUser(Usuario u)throws Exception{
 		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,NOME,EMAIL,SENHA) values(?,?,?,?)");
-		stmt.setLong(1, u.getId());
+		stmt.setInt(1, u.getId());
 		stmt.setString(2, u.getNome());
 		stmt.setString(3, u.getEmail());
 		stmt.setString(4, u.getSenha());
@@ -65,6 +65,35 @@ public class UsuarioDAO {
 		}
 		
 		
+	}
+	
+	public int updateSenha(Usuario usuario, String senhaNova) throws Exception{
+
+		String senhaAntinga = usuario.getSenha();
+
+		int idUsario = usuario.getId(); 
+		stmt = con.prepareStatement("UPDATE TS_T_USUARIO SET SENHA =? WHERE ID_USUARIO=?");
+
+		stmt.setString(1, senhaNova);
+		stmt.setInt(2, idUsario);
+
+
+		return stmt.executeUpdate();
+
+	}
+
+	
+	public int updateEmail(Usuario usuario, String emailNovo) throws Exception{
+
+	   
+		int idUsario = usuario.getId();
+		
+		stmt = con.prepareStatement("UPDATE TS_T_USUARIO SET EMAIL =? WHERE ID_USUARIO=?");
+		stmt.setString(1, emailNovo);
+		stmt.setInt(2, idUsario);
+
+		return stmt.executeUpdate();
+
 	}
 	
 	public void close() throws SQLException{
