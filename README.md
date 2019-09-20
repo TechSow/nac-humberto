@@ -1,6 +1,6 @@
 # nac-humberto
 
-banco:
+banco:<br/>
 CREATE TABLE TS_T_USUARIO(<br/>
 ID_USUARIO INTEGER PRIMARY KEY,<br/>
 NOME VARCHAR(50) NOT NULL,<br/>
