@@ -17,7 +17,7 @@ public class TesteConsultarUsuario {
 			e.printStackTrace();
 		} finally {
 			try {
-			
+			dao.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
