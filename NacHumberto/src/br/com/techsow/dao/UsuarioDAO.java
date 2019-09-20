@@ -3,6 +3,7 @@ package br.com.techsow.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import br.com.techsow.beans.Usuario;
 import br.com.techsow.conexao.Conexao;
@@ -18,7 +19,7 @@ public class UsuarioDAO {
 	}
 	
 	
-	public Usuario getUser(long id) throws Exception{
+	public Usuario getUser(int id) throws Exception{
 		stmt = con.prepareStatement("SELECT FROM * TS_T_USUARIO WHERE ID_USUARIO=?");
 		stmt.setLong(1, id);
 		rs=stmt.executeQuery();
@@ -43,5 +44,31 @@ public class UsuarioDAO {
 		stmt.setString(4, u.getSenha());
 		return stmt.executeUpdate();
 	}
+	
+	public int killUser(int id)throws Exception{
+		stmt = con.prepareStatement("DELETE TS_T_USUARIO WHERE ID_USUARIO = ?");
+		stmt.setInt(1, id);
+		return stmt.executeUpdate();
+		
+	}
 
+	public Usuario loginUser(Usuario u)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM TS_T_TUSUARIO WHERE EMAIL = ? AND SENHA = ?");
+		stmt.setString(1, u.getEmail());
+		stmt.setString(1, u.getSenha());
+		rs = stmt.executeQuery();
+		
+		if(rs.next()) {
+			return this.getUser(rs.getInt("ID_USUARIO"));
+		}else {
+			return new Usuario();
+		}
+		
+		
+	}
+	
+	public void close() throws SQLException{
+		con.close();
+	}
+	
 }
