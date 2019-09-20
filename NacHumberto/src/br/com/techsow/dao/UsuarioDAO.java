@@ -33,5 +33,14 @@ public class UsuarioDAO {
 			return new Usuario();
 		}
 	}
+	
+	public int addUser(Usuario u)throws Exception{
+		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,NOME,EMAIL,SENHA) values(?,?,?,?)");
+		stmt.setLong(1, u.getId());
+		stmt.setString(2, u.getNome());
+		stmt.setString(3, u.getEmail());
+		stmt.setString(4, u.getSenha());
+		return stmt.executeUpdate();
+	}
 
 }
