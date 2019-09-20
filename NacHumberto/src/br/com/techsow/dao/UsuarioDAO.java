@@ -45,8 +45,8 @@ public class UsuarioDAO {
 		return stmt.executeUpdate();
 	}
 	
-	public int killUser(int id)throws Exception{
-		stmt = con.prepareStatement("DELETE TS_T_USUARIO WHERE ID_USUARIO = ?");
+	public int killUser(int id) throws Exception{
+		stmt = con.prepareStatement("delete from TS_T_USUARIO where ID_USUARIO =? ");
 		stmt.setInt(1, id);
 		return stmt.executeUpdate();
 		
