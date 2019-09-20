@@ -1,6 +1,6 @@
 # nac-humberto
 
-schema:<br/>
+schema da tabela TS_T_USUARIO:<br/>
 
 ```
 Nome       Nulo?    Tipo          
