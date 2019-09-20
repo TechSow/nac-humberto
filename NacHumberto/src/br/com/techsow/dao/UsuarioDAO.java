@@ -3,6 +3,7 @@ package br.com.techsow.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import br.com.techsow.beans.Usuario;
 import br.com.techsow.conexao.Conexao;
@@ -43,5 +44,11 @@ public class UsuarioDAO {
 		stmt.setString(4, u.getSenha());
 		return stmt.executeUpdate();
 	}
+	
+	//public int killUser(Usuario u)throws Except
 
+	public void close() throws SQLException{
+		con.close();
+	}
+	
 }
