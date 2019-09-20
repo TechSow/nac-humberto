@@ -19,7 +19,7 @@ public class UsuarioDAO {
 	}
 	
 	
-	public Usuario getUser(long id) throws Exception{
+	public Usuario getUser(int id) throws Exception{
 		stmt = con.prepareStatement("SELECT FROM * TS_T_USUARIO WHERE ID_USUARIO=?");
 		stmt.setLong(1, id);
 		rs=stmt.executeQuery();
