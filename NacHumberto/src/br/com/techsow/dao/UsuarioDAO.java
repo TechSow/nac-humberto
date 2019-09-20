@@ -45,8 +45,28 @@ public class UsuarioDAO {
 		return stmt.executeUpdate();
 	}
 	
-	//public int killUser(Usuario u)throws Except
+	public int killUser(int id)throws Exception{
+		stmt = con.prepareStatement("DELETE TS_T_USUARIO WHERE ID_USUARIO = ?");
+		stmt.setInt(1, id);
+		return stmt.executeUpdate();
+		
+	}
 
+	public Usuario loginUser(Usuario u)throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM TS_T_TUSUARIO WHERE EMAIL = ? AND SENHA = ?");
+		stmt.setString(1, u.getEmail());
+		stmt.setString(1, u.getSenha());
+		rs = stmt.executeQuery();
+		
+		if(rs.next()) {
+			return this.getUser(rs.getInt("ID_USUARIO"));
+		}else {
+			return new Usuario();
+		}
+		
+		
+	}
+	
 	public void close() throws SQLException{
 		con.close();
 	}
