@@ -53,9 +53,9 @@ public class UsuarioDAO {
 	}
 
 	public Usuario loginUser(Usuario u)throws Exception{
-		stmt = con.prepareStatement("SELECT * FROM TS_T_TUSUARIO WHERE EMAIL = ? AND SENHA = ?");
+		stmt = con.prepareStatement("SELECT * FROM TS_T_USUARIO WHERE EMAIL = ? AND SENHA = ?");
 		stmt.setString(1, u.getEmail());
-		stmt.setString(1, u.getSenha());
+		stmt.setString(2, u.getSenha());
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) {
@@ -71,11 +71,11 @@ public class UsuarioDAO {
 
 		String senhaAntinga = usuario.getSenha();
 
-		int idUsario = usuario.getId(); 
+		int idUsuario = usuario.getId(); 
 		stmt = con.prepareStatement("UPDATE TS_T_USUARIO SET SENHA =? WHERE ID_USUARIO=?");
 
 		stmt.setString(1, senhaNova);
-		stmt.setInt(2, idUsario);
+		stmt.setInt(2, idUsuario);
 
 
 		return stmt.executeUpdate();
@@ -86,11 +86,11 @@ public class UsuarioDAO {
 	public int updateEmail(Usuario usuario, String emailNovo) throws Exception{
 
 	   
-		int idUsario = usuario.getId();
+		int idUsuario = usuario.getId();
 		
 		stmt = con.prepareStatement("UPDATE TS_T_USUARIO SET EMAIL =? WHERE ID_USUARIO=?");
 		stmt.setString(1, emailNovo);
-		stmt.setInt(2, idUsario);
+		stmt.setInt(2, idUsuario);
 
 		return stmt.executeUpdate();
 
