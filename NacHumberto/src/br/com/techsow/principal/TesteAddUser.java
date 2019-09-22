@@ -16,7 +16,6 @@ public class TesteAddUser {
 			
 			Usuario u=new Usuario();
 			u.setId(Integer.parseInt(JOptionPane.showInputDialog("Digite o id")));
-			u.setNome(JOptionPane.showInputDialog("Digite o nome do usuario"));
 			u.setEmail(JOptionPane.showInputDialog("Digite o email do usuario"));
 			u.setSenha(JOptionPane.showInputDialog("Digite a senha do usuario"));
 			

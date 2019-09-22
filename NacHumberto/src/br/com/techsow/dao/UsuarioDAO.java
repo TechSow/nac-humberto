@@ -27,7 +27,6 @@ public class UsuarioDAO {
 		if(rs.next()) {
 			return new Usuario(
 					rs.getInt("ID_USUARIO"),
-					rs.getString("NOME"),
 					rs.getString("EMAIL"),
 					rs.getString("SENHA"));
 		}else {
@@ -37,11 +36,10 @@ public class UsuarioDAO {
 
 
 	public int addUser(Usuario u)throws Exception{
-		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,NOME,EMAIL,SENHA) values(?,?,?,?)");
+		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,EMAIL,SENHA) values(?,?,?)");
 		stmt.setInt(1, u.getId());
-		stmt.setString(2, u.getNome());
-		stmt.setString(3, u.getEmail());
-		stmt.setString(4, u.getSenha());
+		stmt.setString(2, u.getEmail());
+		stmt.setString(3, u.getSenha());
 		return stmt.executeUpdate();
 	}
 
@@ -68,7 +66,7 @@ public class UsuarioDAO {
 
 	public int updateSenha(Usuario usuario, String senhaNova) throws Exception{
 
-		String senhaAntinga = usuario.getSenha();
+		//String senhaAntinga = usuario.getSenha();
 
 		int idUsuario = usuario.getId(); 
 		stmt = con.prepareStatement("UPDATE TS_T_USUARIO SET SENHA =? WHERE ID_USUARIO=?");

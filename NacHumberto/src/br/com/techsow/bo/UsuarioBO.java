@@ -10,9 +10,10 @@ public class UsuarioBO {
 
 	public String addUser(Usuario user) {
 
-		if(user.getNome().length() < 5) {
-			return "O nome não pode ter menos que 5 caracteres";
-		}
+		/* Não é mais necessário, ja que nome é atributo da entidade PESSOA no banco
+		 * if(user.getNome().length() < 5) { return
+		 * "O nome não pode ter menos que 5 caracteres"; }
+		 */
 
 		try {
 			InternetAddress email = new InternetAddress(user.getEmail());
