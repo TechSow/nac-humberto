@@ -3,6 +3,7 @@ package br.com.techsow.bo;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
+import br.com.techsow.beans.Pessoa;
 import br.com.techsow.beans.Usuario;
 import br.com.techsow.dao.UsuarioDAO;
 
@@ -93,7 +94,20 @@ public class UsuarioBO {
 
 
 
+	//requisitoFuncional do Usuario
+	public String novoUsuario(Usuario u, Pessoa p)throws Exception{
 
+		if(u.getEmail().length()>80) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		if(u.getSenha().length()>150) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		//padronizacao
+		u.setEmail(u.getEmail().toLowerCase());
+		u.setSenha(p.getNome().toLowerCase());
+		return null;
+	}
 
 
 
