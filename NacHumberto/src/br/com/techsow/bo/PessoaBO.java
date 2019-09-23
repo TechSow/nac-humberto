@@ -96,6 +96,21 @@ public class PessoaBO {
 
 	}
 	
+			//req funcional da pessoa
+	
+	public String novaPessoa(Pessoa p)throws Exception{
+		if(p.getNome().length()>20) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		if(p.getSobrenome().length()>30) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		if(p.getIdade()>120) {
+			return "Idade nao existente";
+		}
+		return null;
+	}
+	
 	
 	
 	
