@@ -58,7 +58,7 @@ public class UsuarioBO {
 	}
 	
 	
-				//regras de negocio
+				//requisitoFuncional do Usuario
 	public String novoUsuario(Usuario u)throws Exception{
 		
 		if(u.getEmail().length()>80) {
