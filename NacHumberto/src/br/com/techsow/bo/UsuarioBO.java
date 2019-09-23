@@ -10,9 +10,6 @@ public class UsuarioBO {
 	
 	public String addUser(Usuario user) {
 		
-		
-		
-		
 		if(user.getNome().length() < 5) {
 			return "O nome não pode ter menos que 5 caracteres";
 		}
@@ -59,5 +56,24 @@ public class UsuarioBO {
 			return "Usuario cadastrado com sucesso";
 		}
 	}
+	
+	
+				//regras de negocio
+	public String novoUsuario(Usuario u)throws Exception{
+		
+		if(u.getEmail().length()>80) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		if(u.getSenha().length()>150) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		//padronizacao
+		u.setEmail(u.getEmail().toLowerCase());
+		u.setSenha(u.getNome().toLowerCase());
+		return null;
+	}
+	
+	
+	
 	
 }
