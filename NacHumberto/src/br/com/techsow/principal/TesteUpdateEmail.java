@@ -11,7 +11,6 @@ public class TesteUpdateEmail {
 		try {
 			dao= new UsuarioDAO();
 			u.setId(1);
-			u.setNome("humb");
 			u.setEmail("email");
 			u.setSenha("senha");
 			dao.updateEmail(u, "email@email.com");
