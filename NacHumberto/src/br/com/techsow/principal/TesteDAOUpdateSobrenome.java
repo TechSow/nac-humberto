@@ -3,7 +3,7 @@ package br.com.techsow.principal;
 import br.com.techsow.beans.Pessoa;
 import br.com.techsow.dao.PessoaDAO;
 
-public class TesteBOUpdateSobrenome {
+public class TesteDAOUpdateSobrenome {
 
 	public static void main(String[] args) {
 		PessoaDAO dao=null;

@@ -5,7 +5,7 @@ import br.com.techsow.beans.Usuario;
 import br.com.techsow.dao.PessoaDAO;
 import br.com.techsow.dao.UsuarioDAO;
 
-public class TesteBOUpdateNome {
+public class TesteDAOUpdateNome {
 
 	public static void main(String[] args) {
 		PessoaDAO dao=null;
