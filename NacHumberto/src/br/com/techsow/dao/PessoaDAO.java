@@ -85,6 +85,18 @@ public class PessoaDAO {
 
 	}
 	
+	public int updateIdade(Pessoa pessoa, int idadeNova) throws Exception{
+
+		int idPessoa = pessoa.getId(); 
+		stmt = con.prepareStatement("UPDATE TS_T_PESSOA SET IDADE=? WHERE ID_PESSOA=?");
+
+		stmt.setInt(1, idadeNova);
+		stmt.setInt(2, idPessoa);
+
+		return stmt.executeUpdate();
+
+	}
+	
 	
 	public void close() throws SQLException{
 		con.close();
