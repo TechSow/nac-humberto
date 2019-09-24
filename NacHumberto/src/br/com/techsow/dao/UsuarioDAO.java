@@ -38,11 +38,13 @@ public class UsuarioDAO {
 	}
 
 	public int addUser(Usuario u)throws Exception{
-		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,EMAIL,SENHA, ADM) values(?,?,?,?)");
+		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,EMAIL,SENHA, ADM, PROFESSOR) values(?,?,?,?,?)");
 		stmt.setInt(1, u.getId());
 		stmt.setString(2, u.getEmail());
 		stmt.setString(3, u.getSenha());
 		stmt.setBoolean(4, u.getIsAdm());
+		stmt.setBoolean(5, u.getIsProfessor());
+
 		return stmt.executeUpdate();
 	}
 

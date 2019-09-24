@@ -7,7 +7,6 @@ public class Pessoa {
 	private Usuario usuarioId = new Usuario();
 	
 	
-	
 	public int getId() {
 		return id;
 	}

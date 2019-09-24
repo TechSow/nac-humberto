@@ -24,10 +24,10 @@ public class TesteAddPessoa {
 			 * 
 			 */
 			
-			Usuario usuario = new UsuarioDAO().getUser(99);
+			Usuario usuario = new UsuarioDAO().getUser(12);
 			
 			Pessoa p=new Pessoa();
-			p.setId(1);
+			p.setId(12);
 			p.setIdade(33);
 			p.setNome("Italo");
 			p.setSobrenome("Chagas");
