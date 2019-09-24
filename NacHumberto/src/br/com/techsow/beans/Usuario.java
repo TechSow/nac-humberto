@@ -4,7 +4,7 @@ public class Usuario {
 	
 	private int id;
 	private String email,senha;
-	
+	boolean isAdm;
 	public int getId() {
 		return id;
 	}
@@ -23,17 +23,20 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Usuario(int id, String email, String senha) {
-		this(email,senha);
-		this.id = id;
-		}
-	public Usuario() {
-		
+	public boolean isAdm() {
+		return isAdm;
 	}
-	
-	public Usuario(String email, String senha) {
+	public void setAdm(boolean isAdm) {
+		this.isAdm = isAdm;
+	}
+	public Usuario(int id, String email, String senha, boolean isAdm) {
+		super();
+		this.id = id;
 		this.email = email;
 		this.senha = senha;
+		this.isAdm = isAdm;
 	}
+	
+	
 	
 }

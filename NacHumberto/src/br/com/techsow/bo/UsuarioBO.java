@@ -27,8 +27,22 @@ public class UsuarioBO {
 			return "A senha tem que ser maior que 6 caracteres.";
 		}
 
+		if(user.getEmail().length()>80) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		if(user.getSenha().length()>150) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		
+		///////////////////////////////////////////////
+
+		user.setEmail(user.getEmail().toLowerCase());
+		
+		//////////////////////////////////////////////
+		
 		UsuarioDAO dao = null;
 		Usuario verificarId = null;
+		
 		try {
 			dao= new UsuarioDAO();
 			verificarId = dao.getUser(user.getId());
@@ -36,9 +50,12 @@ public class UsuarioBO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		///////////////////////////////////////
 		if(verificarId.getId() > 0) {
 			return "O usuário já existe";
 		}
+		//////////////////////////////////////
 
 		int ret = 0;
 		try {
@@ -52,13 +69,15 @@ public class UsuarioBO {
 				e.printStackTrace();
 			}
 		}
+		
+		///////////////////////////////////////
+		
 		if (ret == 0) {
 			return "Houve um erro, por favor, tente mais tarde";
 		}else {
 			return "Usuario cadastrado com sucesso";
 		}
 	}
-
 
 	/////////////////////////////////////////////////////////////////////
 
@@ -91,30 +110,4 @@ public class UsuarioBO {
 		}
 
 	}
-
-
-
-	//requisitoFuncional do Usuario
-	public String novoUsuario(Usuario u, Pessoa p)throws Exception{
-
-		if(u.getEmail().length()>80) {
-			return "Excedeu a quantidade de caracteres";
-		}
-		if(u.getSenha().length()>150) {
-			return "Excedeu a quantidade de caracteres";
-		}
-		//padronizacao
-		u.setEmail(u.getEmail().toLowerCase());
-		u.setSenha(p.getNome().toLowerCase());
-		return null;
-	}
-
-
-
-
-
-
-
-
-
 }

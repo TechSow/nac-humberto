@@ -18,7 +18,17 @@ public class PessoaBO {
 			return "Idade inválida.";
 		}
 
-
+		if(pessoa.getNome().length()>20) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		if(pessoa.getSobrenome().length()>30) {
+			return "Excedeu a quantidade de caracteres";
+		}
+		if(pessoa.getIdade()>120) {
+			return "Idade nao existente";
+		}
+		
+		
 		PessoaDAO dao = null;
 		Pessoa verificarId = null;
 		try {
@@ -91,25 +101,6 @@ public class PessoaBO {
 		}
 
 	}
-	
-			//req funcional da pessoa
-	
-	public String novaPessoa(Pessoa p)throws Exception{
-		if(p.getNome().length()>20) {
-			return "Excedeu a quantidade de caracteres";
-		}
-		if(p.getSobrenome().length()>30) {
-			return "Excedeu a quantidade de caracteres";
-		}
-		if(p.getIdade()>120) {
-			return "Idade nao existente";
-		}
-		return null;
-	}
-	
-	
-	
-	
 	
 	
 }	
