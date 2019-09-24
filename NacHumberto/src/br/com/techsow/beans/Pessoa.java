@@ -2,9 +2,9 @@ package br.com.techsow.beans;
 
 public class Pessoa {
 
-	int id, idade;
-	String nome, sobrenome;
-	Usuario usuarioId = new Usuario();
+	private int id, idade;
+	private String nome, sobrenome;
+	private Usuario usuarioId = new Usuario();
 	
 	
 	
