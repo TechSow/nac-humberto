@@ -14,10 +14,6 @@ public class PessoaBO {
 			return "O nome não pode ter menos que 3 caracteres";
 		}
 
-		if(pessoa.getSobrenome().length() < 5) {
-			return "O Sobrenome não pode ter menos que 5 caracteres";
-		}
-
 		if(pessoa.getIdade() <=0) {
 			return "Idade inválida.";
 		}
