@@ -37,6 +37,9 @@ public class Usuario {
 		this.isAdm = isAdm;
 	}
 	
+	public Usuario() {
+		
+	}
 	
 	
 }
