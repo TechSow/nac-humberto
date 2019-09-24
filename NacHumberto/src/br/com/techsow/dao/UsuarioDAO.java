@@ -28,18 +28,21 @@ public class UsuarioDAO {
 			return new Usuario(
 					rs.getInt("ID_USUARIO"),
 					rs.getString("EMAIL"),
-					rs.getString("SENHA"));
+					rs.getString("SENHA"),
+					rs.getBoolean("ADM"),
+					rs.getBoolean("PROFESSOR"));
+
 		}else {
 			return new Usuario();
 		}
 	}
 
-
 	public int addUser(Usuario u)throws Exception{
-		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,EMAIL,SENHA) values(?,?,?)");
+		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,EMAIL,SENHA, ADM) values(?,?,?,?)");
 		stmt.setInt(1, u.getId());
 		stmt.setString(2, u.getEmail());
 		stmt.setString(3, u.getSenha());
+		stmt.setBoolean(4, u.getIsAdm());
 		return stmt.executeUpdate();
 	}
 

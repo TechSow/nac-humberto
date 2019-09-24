@@ -18,6 +18,8 @@ public class TesteAddUser {
 			u.setId(Integer.parseInt(JOptionPane.showInputDialog("Digite o id")));
 			u.setEmail(JOptionPane.showInputDialog("Digite o email do usuario"));
 			u.setSenha(JOptionPane.showInputDialog("Digite a senha do usuario"));
+			u.setAdm(Boolean.parseBoolean(JOptionPane.showInputDialog("Digite true ou false")));
+
 			
 		if(dao.addUser(u)>=1) {
 			System.out.println("Adicionado com sucesso");
