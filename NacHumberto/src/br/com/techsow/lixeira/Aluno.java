@@ -1,4 +1,7 @@
-package br.com.techsow.beans;
+package br.com.techsow.lixeira;
+
+import br.com.techsow.beans.Pessoa;
+import br.com.techsow.beans.Usuario;
 
 public class Aluno extends Usuario{
 

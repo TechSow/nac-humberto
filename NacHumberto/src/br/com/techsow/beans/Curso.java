@@ -2,6 +2,8 @@ package br.com.techsow.beans;
 
 import java.util.ArrayList;
 
+import br.com.techsow.lixeira.Aluno;
+
 public class Curso {
 
 	private int id;

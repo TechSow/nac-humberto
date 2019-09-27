@@ -2,15 +2,20 @@ package br.com.techsow.beans;
 
 public class Endereco {
 
-	private String rua, logradouro, cep, cidade, estado;
-	private int numero;
-	
-	
-	public String getRua() {
-		return rua;
+	private String tipoLogr, bairro, logradouro, cep, cidade, uf;
+	private int id, numero;
+	private Pessoa pessoa;
+	public String getTipoLogr() {
+		return tipoLogr;
 	}
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setTipoLogr(String tipoLogr) {
+		this.tipoLogr = tipoLogr;
+	}
+	public String getBairro() {
+		return bairro;
+	}
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 	public String getLogradouro() {
 		return logradouro;
@@ -18,7 +23,6 @@ public class Endereco {
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
-	
 	public String getCep() {
 		return cep;
 	}
@@ -31,11 +35,17 @@ public class Endereco {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public String getEstado() {
-		return estado;
+	public String getUf() {
+		return uf;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public int getNumero() {
 		return numero;
@@ -43,17 +53,46 @@ public class Endereco {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	
-	
-	
-	public Endereco(String rua, String logradouro, String cep, String cidade, String estado, int numero) {
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+
+	public Endereco() {}
+
+
+	public Endereco( int id, String tipoLogr, String bairro, String logradouro, String cep, String cidade, String uf,
+			int numero, Pessoa pessoa) {
 		super();
-		this.rua = rua;
+		this.tipoLogr = tipoLogr;
+		this.bairro = bairro;
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.cidade = cidade;
-		this.estado = estado;
+		this.uf = uf;
+		this.id = id;
 		this.numero = numero;
+		this.pessoa = pessoa;
 	}
-	
+
+	public Endereco(String tipoLogr, String bairro, String logradouro, String cep, String cidade, String uf,
+			int numero) {
+		super();
+		this.tipoLogr = tipoLogr;
+		this.bairro = bairro;
+		this.logradouro = logradouro;
+		this.cep = cep;
+		this.cidade = cidade;
+		this.uf = uf;
+		this.numero = numero;
+	} 
+
+
+
+
+
+
 }
