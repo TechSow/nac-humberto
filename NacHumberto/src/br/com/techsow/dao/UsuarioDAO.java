@@ -29,7 +29,7 @@ public class UsuarioDAO {
 					rs.getInt("ID_USUARIO"),
 					rs.getString("EMAIL"),
 					rs.getString("SENHA"),
-					rs.getBoolean("ADM"),
+					rs.getBoolean("ADMINISTRADOr"),
 					rs.getBoolean("PROFESSOR"));
 
 		}else {
@@ -38,7 +38,7 @@ public class UsuarioDAO {
 	}
 
 	public int addUser(Usuario u)throws Exception{
-		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,EMAIL,SENHA, ADM, PROFESSOR) values(?,?,?,?,?)");
+		stmt=con.prepareStatement("insert into TS_T_USUARIO (ID_USUARIO,EMAIL,SENHA, ADMINISTRADOR, PROFESSOR) values(?,?,?,?,?)");
 		stmt.setInt(1, u.getId());
 		stmt.setString(2, u.getEmail());
 		stmt.setString(3, u.getSenha());

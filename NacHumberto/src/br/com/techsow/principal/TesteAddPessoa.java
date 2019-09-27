@@ -1,5 +1,7 @@
 package br.com.techsow.principal;
 
+import javax.swing.JOptionPane;
+
 import br.com.techsow.beans.Pessoa;
 import br.com.techsow.beans.Usuario;
 import br.com.techsow.dao.PessoaDAO;
@@ -24,16 +26,15 @@ public class TesteAddPessoa {
 			 * 
 			 */
 			
-			Usuario usuario = new UsuarioDAO().getUser(12);
+			
+			Usuario usuario = new UsuarioDAO().getUser(Integer.parseInt(JOptionPane.showInputDialog("Digite o ID do Usuario")));
 			
 			Pessoa p=new Pessoa();
 			p.setId(12);
-			p.setIdade(33);
 			p.setNome("Italo");
 			p.setSobrenome("Chagas");
 			p.setUsuarioId(usuario);
 			
-
 			if(dao.addPessoa(p)>=1) {
 				System.out.println("Adicionado com sucesso");
 			}else {
