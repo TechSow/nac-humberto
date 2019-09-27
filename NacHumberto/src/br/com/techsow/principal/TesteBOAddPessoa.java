@@ -8,17 +8,16 @@ public class TesteBOAddPessoa {
 
 	public static void main(String[] args) {
 
-		Usuario teste = new Usuario();
-		teste.setId(13);
-		teste.setEmail("ff@gmail.com");
-		teste.setSenha("12345678");
+		Usuario usuario = new Usuario();
+		usuario.setId(2);
+		usuario.setEmail("1berto@gmail.com");
+		usuario.setSenha("12345");
 		
 		Pessoa p=new Pessoa();
-		p.setId(13);
-		p.setIdade(33);
-		p.setNome("Italo");
-		p.setSobrenome("Chagas");
-		p.setUsuarioId(teste);
+		p.setId(2);
+		p.setNome("Humberto");
+		p.setSobrenome("Fiapero");
+		p.setUsuarioId(usuario);
 		
 		System.out.println(new PessoaBO().addPessoa(p));
 	}

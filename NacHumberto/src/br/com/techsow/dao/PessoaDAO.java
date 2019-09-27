@@ -30,7 +30,6 @@ public class PessoaDAO {
 		if(rs.next()) {
 			return new Pessoa(
 					rs.getInt("ID_PESSOA"),
-					rs.getInt("IDADE"),
 					rs.getString("NOME"),
 					rs.getString("SOBRENOME"),
 					new UsuarioDAO().getUser(rs.getInt("ID_USUARIO")));
@@ -42,12 +41,11 @@ public class PessoaDAO {
 	
 	
 	public int addPessoa(Pessoa p)throws Exception{
-		stmt=con.prepareStatement("insert into TS_T_PESSOA (ID_PESSOA,IDADE,NOME,SOBRENOME,ID_USUARIO) values(?,?,?,?,?)");
+		stmt=con.prepareStatement("insert into TS_T_PESSOA (ID_PESSOA,NOME,SOBRENOME,ID_USUARIO) values(?,?,?,?)");
 		stmt.setInt(1, p.getId());
-		stmt.setInt(2, p.getIdade());
-		stmt.setString(3, p.getNome());
-		stmt.setString(4, p.getSobrenome());
-		stmt.setInt(5, p.getUsuarioId().getId());
+		stmt.setString(2, p.getNome());
+		stmt.setString(3, p.getSobrenome());
+		stmt.setInt(4, p.getUsuarioId().getId());
 		return stmt.executeUpdate();
 	}
 	

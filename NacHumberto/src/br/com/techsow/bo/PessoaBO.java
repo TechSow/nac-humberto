@@ -14,20 +14,12 @@ public class PessoaBO {
 			return "O nome não pode ter menos que 3 caracteres";
 		}
 
-		if(pessoa.getIdade() <=0) {
-			return "Idade inválida.";
-		}
-
 		if(pessoa.getNome().length()>20) {
 			return "Excedeu a quantidade de caracteres";
 		}
 		if(pessoa.getSobrenome().length()>30) {
 			return "Excedeu a quantidade de caracteres";
 		}
-		if(pessoa.getIdade()>120) {
-			return "Idade nao existente";
-		}
-		
 		
 		PessoaDAO dao = null;
 		Pessoa verificarId = null;
@@ -41,9 +33,12 @@ public class PessoaBO {
 		}
 
 		if(verificarId.getId() > 0) {
-			return "Ocorreu um erro ao criar seu cadastro. Envie um Email a TechSow para obter suporte.ç";
+			return "Parece que ja existe um cadastro para essa pessoa. Para alterar suas informações, utilize a classe de teste Update{nome/sobrenome}";
 		}
 
+		if(pessoa.getUsuarioId().getId() ==1){
+			return "Ja existe um cadastro para esse Usuario";
+		}
 
 		int ret = 0;
 

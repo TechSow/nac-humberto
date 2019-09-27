@@ -7,12 +7,12 @@ public class TesteBOAddUser {
 
 	public static void main(String[] args) {
 		Usuario teste = new Usuario();
-		teste.setId(23);
-		teste.setEmail("dasda@gmail.com");
-		teste.setSenha("12345678");
+		teste.setId(1);
+		teste.setEmail("Humberto@gmail.com");
+		teste.setSenha("1234567");
 		teste.setAdm(false);
-		teste.setProfessor(false);
-
+		teste.setProfessor(true);
+		
 		String bo = new UsuarioBO().addUser(teste);
 		
 		System.out.println(bo);
