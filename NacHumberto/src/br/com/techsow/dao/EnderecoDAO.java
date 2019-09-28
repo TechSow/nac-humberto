@@ -3,6 +3,8 @@ package br.com.techsow.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import br.com.techsow.beans.Endereco;
 import br.com.techsow.beans.Pessoa;
 import br.com.techsow.conexao.Conexao;
@@ -46,7 +48,7 @@ public class EnderecoDAO {
 		}
 	}
 
-	public int addEndereco (Endereco e) throws Exception{
+	public int addEndereco(Endereco e) throws Exception{
 
 		stmt = con.prepareStatement("INSERT INTO TS_T_ENDERECO(ID_ENDERECO, TP_LOGR, BAIRRO, LOGR, CEP,"
 				+ "CIDADE, UF, NUMERO, TS_T_PESSOA_ID_PESSOA) values(?,?,?,?,?,?,?,?,?)");
@@ -145,6 +147,11 @@ public class EnderecoDAO {
 		return stmt.executeUpdate();
 	}
 
+	
+	public void close() throws SQLException{
+		con.close();
+	}
+	
 
 
 
