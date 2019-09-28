@@ -39,6 +39,11 @@ public class Curso {
 		this.alunos.add(a);
 	}
 	
+	
+	public Curso(){
+		
+	}
+	
 	public Curso(int id, String nome, String descricao, ArrayList<Aluno> alunos) {
 		super();
 		this.id = id;

@@ -2,7 +2,8 @@ package br.com.techsow.beans;
 
 public class Materia {
 
-	int id, id_curso;
+	int id;
+	Curso id_curso;
 	String nome, descricao;
 	public int getId() {
 		return id;
@@ -10,10 +11,10 @@ public class Materia {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getId_curso() {
+	public Curso getId_curso() {
 		return id_curso;
 	}
-	public void setId_curso(int id_curso) {
+	public void setId_curso(Curso id_curso) {
 		this.id_curso = id_curso;
 	}
 	public String getNome() {
@@ -29,7 +30,11 @@ public class Materia {
 		this.descricao = descricao;
 	}
 	
-	public Materia(int id, int id_curso, String nome, String descricao) {
+	
+	public Materia() {}
+	
+	
+	public Materia(int id, Curso id_curso, String nome, String descricao) {
 		super();
 		this.id = id;
 		this.id_curso = id_curso;
