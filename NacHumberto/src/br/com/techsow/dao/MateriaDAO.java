@@ -21,7 +21,7 @@ public class MateriaDAO {
 	
 	//Adicionado o ultimo campo para a tabela de relacionamento materia/curso, necessario entender como passar esse campo
 	public int addMateria(Materia m)throws Exception{
-		stmt=con.prepareStatement("insert into TS_T_MATERIA(ID_MATERIA,ID_CURSO,NOME,EMENTA, TS_T_CURSO_ID_CURSO)VALUES(?,?,?,?,1)");
+		stmt=con.prepareStatement("insert into TS_T_MATERIA(ID_MATERIA,TS_T_CURSO_ID_CURSO,NOME,EMENTA)VALUES(?,?,?,?)");
 		stmt.setInt(1, m.getId());
 		stmt.setInt(2, m.getId_curso().getId());
 		stmt.setString(3, m.getNome());

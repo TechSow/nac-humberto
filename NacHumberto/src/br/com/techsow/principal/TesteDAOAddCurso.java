@@ -16,7 +16,7 @@ public class TesteDAOAddCurso {
 			dao = new CursoDAO();
 
 			curso.setDescricao("teste");
-			curso.setId(1);
+			curso.setId(2);
 			curso.setNome("TDS");
 			curso.setDuracao(2);
 

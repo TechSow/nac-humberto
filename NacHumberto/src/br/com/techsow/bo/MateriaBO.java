@@ -1,6 +1,7 @@
 package br.com.techsow.bo;
 
 import br.com.techsow.beans.Materia;
+import br.com.techsow.dao.CursoDAO;
 import br.com.techsow.dao.MateriaDAO;
 
 public class MateriaBO {
@@ -21,7 +22,18 @@ public class MateriaBO {
 			return "ID do curso nao encontrado. Curso não existe";
 		}
 
-
+		
+		CursoDAO cursoDao = null;
+		try {
+			
+			cursoDao = new CursoDAO();
+			if(cursoDao.getCursoId(materia.getId_curso().getId()) == 1) {
+				return "O curso informado ja contem essa máteria";
+			}
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		
 
 		/////////////////////////////////////////
 		//Espaco para os requisitos funcioinais//

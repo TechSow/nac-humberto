@@ -38,6 +38,21 @@ public class CursoDAO {
 			return new Curso();
 		}
 	}
+	
+	
+	public int getCursoId(int cod) throws Exception {
+		stmt = con.prepareStatement("SELECT ID_CURSO FROM TS_T_CURSO WHERE ID_CURSO=?");
+		stmt.setInt(1, cod);
+		rs = stmt.executeQuery();
+		if (rs.next()) {
+			return rs.getInt("ID_CURSO");
+
+		} else {
+			return rs.getInt("ID_CURSO");
+		}
+	}
+	
+	
 
 	public int UpdateNome(Curso c, String nomeNovo) throws Exception {
 		stmt = con.prepareStatement("UPDATE TS_T_CURSO SET NOME=? WHERE ID_MATERIA=?");
