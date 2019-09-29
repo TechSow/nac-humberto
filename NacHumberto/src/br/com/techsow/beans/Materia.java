@@ -4,7 +4,7 @@ public class Materia {
 
 	int id;
 	Curso id_curso;
-	String nome, descricao;
+	String nome, ementa;
 	public int getId() {
 		return id;
 	}
@@ -23,23 +23,23 @@ public class Materia {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getDescricao() {
-		return descricao;
+	public String getEmenta() {
+		return ementa;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setEmenta(String ementa) {
+		this.ementa = ementa;
 	}
 	
 	
 	public Materia() {}
 	
 	
-	public Materia(int id, Curso id_curso, String nome, String descricao) {
+	public Materia(int id, Curso id_curso, String nome, String ementa) {
 		super();
 		this.id = id;
 		this.id_curso = id_curso;
 		this.nome = nome;
-		this.descricao = descricao;
+		this.ementa = ementa;
 	}
 
 }

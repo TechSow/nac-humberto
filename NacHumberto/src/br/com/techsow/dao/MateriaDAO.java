@@ -19,12 +19,13 @@ public class MateriaDAO {
 		
 	}
 	
+	//Adicionado o ultimo campo para a tabela de relacionamento materia/curso, necessario entender como passar esse campo
 	public int addMateria(Materia m)throws Exception{
-		stmt=con.prepareStatement("insert into TS_T_MATERIA(ID_MATERIA,ID_CURSO,NOME,DESCRICAO)VALUES(?,?,?,?)");
+		stmt=con.prepareStatement("insert into TS_T_MATERIA(ID_MATERIA,ID_CURSO,NOME,EMENTA, TS_T_CURSO_ID_CURSO)VALUES(?,?,?,?,1)");
 		stmt.setInt(1, m.getId());
 		stmt.setInt(2, m.getId_curso().getId());
 		stmt.setString(3, m.getNome());
-		stmt.setString(4, m.getDescricao());
+		stmt.setString(4, m.getEmenta());
 		return stmt.executeUpdate();
 	}	
 	
@@ -38,7 +39,7 @@ public class MateriaDAO {
 					rs.getInt("ID_MATERIA"),
 					new CursoDAO().getCurso(rs.getInt("ID_CURSO")),
 					rs.getString("NOME"),
-					rs.getString("DESCRICAO"));
+					rs.getString("EMENTA"));
 			
 		}else {
 
@@ -58,9 +59,9 @@ public class MateriaDAO {
 		stmt.setInt(1, m.getId());
 		return stmt.executeUpdate();
 	}
-	public int UpdateDescricao(Materia m,String novaDescricao)throws Exception{
+	public int UpdateEmenta(Materia m,String novaEmenta)throws Exception{
 		stmt=con.prepareStatement("UPDATE TS_T_MATERIA WHERE ID_MATERIA=?");
-		stmt.setString(2, novaDescricao);
+		stmt.setString(2, novaEmenta);
 		stmt.setInt(1, m.getId());
 		return stmt.executeUpdate();
 	}

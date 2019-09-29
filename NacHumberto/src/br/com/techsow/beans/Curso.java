@@ -6,9 +6,10 @@ import br.com.techsow.lixeira.Aluno;
 
 public class Curso {
 
-	private int id;
+	private int id,duracao;
 	private String nome, descricao;
 	private ArrayList <Aluno> alunos = new ArrayList();
+	
 	
 	public int getId() {
 		return id;
@@ -39,6 +40,12 @@ public class Curso {
 		this.alunos.add(a);
 	}
 	
+	public int getDuracao() {
+		return duracao;
+	}
+	public void setDuracao(int duracao) {
+		this.duracao = duracao;
+	}
 	
 	public Curso(){
 		

@@ -10,7 +10,7 @@ public class EnderecoBO {
 
 	//Necessário validar os métodos abaixo
 	public String addEndereco(Endereco endereco) {
-		
+	
 		if(endereco.getTipoLogr().matches(".*\\d.*")) {
 			return "O tipo de logradouro não pode conter números";
 		}

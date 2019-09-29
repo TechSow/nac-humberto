@@ -19,10 +19,11 @@ public class CursoDAO {
 	}
 	
 	public int addCurso(Curso c) throws Exception {
-		stmt = con.prepareStatement("INSERT INTO TS_T_CURSO(ID_CURSO,NOME,DESCRICAO)VALUES(?,?,?)");
+		stmt = con.prepareStatement("INSERT INTO TS_T_CURSO(ID_CURSO,NOME,DESCRICAO,DURACAO)VALUES(?,?,?,?)");
 		stmt.setInt(1, c.getId());
 		stmt.setString(2, c.getNome());
 		stmt.setString(3, c.getDescricao());
+		stmt.setInt(4, c.getDuracao());
 		return stmt.executeUpdate();
 	}
 
@@ -59,7 +60,7 @@ public class CursoDAO {
 		return stmt.executeUpdate();
 	}
 
-	public void fechar() throws Exception {
+	public void close() throws Exception {
 		con.close();
 	}
 }
